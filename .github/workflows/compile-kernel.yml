@@ -13,10 +13,11 @@ on:
       kernel_repo:
         description: "Select the kernel repository"
         required: false
-        default: "unifreq"
+        default: "conaco66"
         type: choice
         options:
           - unifreq
+          - conaco66
           - kernel.org
       kernel_version:
         description: "Select kernel version"
