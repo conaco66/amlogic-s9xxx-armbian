@@ -12,7 +12,7 @@ on:
       set_release:
         description: "Select OS Release."
         required: false
-        default: "jammy"
+        default: "bullseye"
         type: choice
         options:
           - jammy
@@ -20,7 +20,7 @@ on:
       armbian_soc:
         description: "Select Amlogic SoC."
         required: false
-        default: "all"
+        default: "s905l3a"
         type: choice
         options:
           - all
@@ -44,7 +44,7 @@ on:
       armbian_kernel:
         description: "Select kernel version."
         required: false
-        default: "5.10.135_5.15.50"
+        default: "5.10.135"
         type: choice
         options:
           - 5.4.210_5.10.135_5.15.50
@@ -75,7 +75,7 @@ on:
       armbian_sign:
         description: "Set armbian custom name."
         required: false
-        default: ""
+        default: "ny"
 
 env:
   TZ: America/New_York
@@ -131,7 +131,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Rebuild Armbian for Amlogic s9xxx
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: conaco66/amlogic-s9xxx-armbian@main
         if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
         with:
           build_target: armbian
